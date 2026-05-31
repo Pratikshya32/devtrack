@@ -5,6 +5,61 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## GSSoC Semantic Versioning Notes
+
+Use this section when preparing or reviewing GSSoC-driven changelog entries.
+It keeps release notes consistent even when several contributors are working on
+small fixes, UI improvements, and onboarding tasks in parallel.
+
+### Version Bump Rules
+
+- **Patch releases** (`0.2.x`) are for bug fixes, documentation updates,
+  accessibility corrections, test-only changes, and small UI polish that does
+  not change a public workflow.
+- **Minor releases** (`0.x.0`) are for new dashboard widgets, new API routes,
+  new persisted fields, new self-hosting capabilities, or contributor-visible
+  enhancements that add behavior while staying backward compatible.
+- **Major releases** (`x.0.0`) are reserved for breaking changes such as
+  authentication flow rewrites, database schema changes that require manual
+  migration, API response contract changes, or removing supported deployment
+  paths.
+
+### GSSoC Entry Format
+
+When a merged PR is part of GSSoC, write the changelog entry so a maintainer can
+understand the user-facing value without opening the PR:
+
+- Start with the affected area, for example `dashboard`, `auth`, `metrics`,
+  `docs`, `tests`, or `self-hosting`.
+- Mention the behavior change before implementation details.
+- Link the issue or PR number when available, for example `Closes #42` or
+  `PR #58`.
+- Keep contributor credits in the PR discussion unless the release entry needs
+  to preserve project history.
+
+### Examples
+
+```md
+### Added
+- dashboard: add weekly goal streak summary for authenticated users (PR #58).
+
+### Fixed
+- auth: preserve GitHub session refresh after token rotation (Closes #61).
+
+### Documentation
+- docs: document Supabase service-role setup for self-hosted deployments.
+```
+
+### Review Checklist
+
+- The entry is under `Added`, `Changed`, `Fixed`, `Removed`, `Security`, or
+  `Documentation`.
+- The version bump matches the actual impact of the change.
+- Breaking changes include migration notes or an explicit rollback path.
+- GSSoC issue labels and PR references are present before release tagging.
+
+---
+
 ## [0.2.0] — 2025-05-10
 
 ### Changed — Breaking
