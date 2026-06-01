@@ -93,21 +93,21 @@ To get a fully functional copy running with authentication and metrics:
 
 DevTrack relies on a set of environment variables to connect to external APIs and database services. Copy `.env.example` to `.env.local` and populate these values:
 
-| Variable | Required? | Description |
-| :--- | :---: | :--- |
-| `NEXT_PUBLIC_SUPABASE_URL` | **Yes** | Your Supabase project URL (e.g., `https://your-ref.supabase.co`). |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | **Yes** | Your Supabase public anonymous API key. |
-| `SUPABASE_SERVICE_ROLE_KEY` | **Yes** | Server-side Supabase secret key (never expose this client-side). |
-| `NEXTAUTH_URL` | **Yes** | The base URL where your app is running locally (e.g., `http://localhost:3000`). |
-| `NEXTAUTH_SECRET` | **Yes** | Used to sign NextAuth tokens. Generate with: `openssl rand -base64 32`. |
-| `GITHUB_ID` | **Yes** | The Client ID from your registered GitHub OAuth Application. |
-| `GITHUB_SECRET` | **Yes** | The Client Secret from your registered GitHub OAuth Application. |
-| `ENCRYPTION_KEY` | **Yes** | A 32-byte hex key used to encrypt OAuth tokens. Generate with: `openssl rand -hex 32`. |
-| `GITHUB_WEBHOOK_SECRET` | No | Secret key to verify incoming GitHub webhooks. Generate with: `openssl rand -hex 32`. |
-| `GITHUB_TOKEN` | No | Fine-grained or classic PAT to bypass rate limits when fetching repository metrics. |
-| `UPSTASH_REDIS_REST_URL` | No | Upstash Redis URL for API rate limiting/caching. |
-| `UPSTASH_REDIS_REST_TOKEN` | No | Upstash Redis REST Token. |
-| `GROQ_API_KEY` | No | Groq API Key to enable Llama-3 AI insights in the mentor widget. |
+| Variable                        | Required? | Description                                                                            |
+| :------------------------------ | :-------: | :------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SUPABASE_URL`      |  **Yes**  | Your Supabase project URL (e.g., `https://your-ref.supabase.co`).                      |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` |  **Yes**  | Your Supabase public anonymous API key.                                                |
+| `SUPABASE_SERVICE_ROLE_KEY`     |  **Yes**  | Server-side Supabase secret key (never expose this client-side).                       |
+| `NEXTAUTH_URL`                  |  **Yes**  | The base URL where your app is running locally (e.g., `http://localhost:3000`).        |
+| `NEXTAUTH_SECRET`               |  **Yes**  | Used to sign NextAuth tokens. Generate with: `openssl rand -base64 32`.                |
+| `GITHUB_ID`                     |  **Yes**  | The Client ID from your registered GitHub OAuth Application.                           |
+| `GITHUB_SECRET`                 |  **Yes**  | The Client Secret from your registered GitHub OAuth Application.                       |
+| `ENCRYPTION_KEY`                |  **Yes**  | A 32-byte hex key used to encrypt OAuth tokens. Generate with: `openssl rand -hex 32`. |
+| `GITHUB_WEBHOOK_SECRET`         |    No     | Secret key to verify incoming GitHub webhooks. Generate with: `openssl rand -hex 32`.  |
+| `GITHUB_TOKEN`                  |    No     | Fine-grained or classic PAT to bypass rate limits when fetching repository metrics.    |
+| `UPSTASH_REDIS_REST_URL`        |    No     | Upstash Redis URL for API rate limiting/caching.                                       |
+| `UPSTASH_REDIS_REST_TOKEN`      |    No     | Upstash Redis REST Token.                                                              |
+| `GROQ_API_KEY`                  |    No     | Groq API Key to enable Llama-3 AI insights in the mentor widget.                       |
 
 ---
 
@@ -115,15 +115,15 @@ DevTrack relies on a set of environment variables to connect to external APIs an
 
 To ensure code readability and maintainability, please adhere to our styling rules:
 
-* **Linting & Formatting**: We use ESLint and Prettier. Check your code using:
+- **Linting & Formatting**: We use ESLint and Prettier. Check your code using:
   ```bash
   pnpm run lint
   ```
-* **TypeScript strict mode**: Write clean, strongly typed code. Run type checking before committing:
+- **TypeScript strict mode**: Write clean, strongly typed code. Run type checking before committing:
   ```bash
   pnpm run type-check
   ```
-* **Clean Code**:
+- **Clean Code**:
   - Remove all unused imports and variables.
   - Delete any debugging statements like `console.log` or temporary comments.
   - Ensure proper semantic HTML and accessibility (a11y) standards.
@@ -136,12 +136,23 @@ Always create a new branch for your task. Never push directly to `main`. Use the
 
 `prefix/short-descriptive-name`
 
+For assigned GSSoC issues, include the issue number in the branch name whenever possible:
+
+```text
+docs/issue-2-gssoc-git-conventions
+fix/issue-17-pr-count-off-by-one
+test/issue-42-goal-tracker-coverage
+```
+
 ### Prefix Types:
-* `feat/` — A new user feature (e.g., `feat/add-achievements-tab`)
-* `fix/` — A bug fix (e.g., `fix/oauth-token-expiry`)
-* `docs/` — Documentation changes only (e.g., `docs/update-installation-guide`)
-* `test/` — Adding or updating tests (e.g., `test/visual-regression-setup`)
-* `refactor/` — Code refactoring with no behavior changes (e.g., `refactor/api-routes`)
+
+- `feat/` — A new user feature (e.g., `feat/add-achievements-tab`)
+- `fix/` — A bug fix (e.g., `fix/oauth-token-expiry`)
+- `docs/` — Documentation changes only (e.g., `docs/update-installation-guide`)
+- `test/` — Adding or updating tests (e.g., `test/visual-regression-setup`)
+- `refactor/` — Code refactoring with no behavior changes (e.g., `refactor/api-routes`)
+
+Keep branch names short, lowercase, and scoped to one issue. Avoid broad names like `updates`, `final-fix`, or `gssoc-work` because they make review and follow-up harder.
 
 ---
 
@@ -150,23 +161,33 @@ Always create a new branch for your task. Never push directly to `main`. Use the
 We enforce **Conventional Commits** to keep our git history clean and understandable.
 
 ### Format
+
 ```text
 <type>(<optional-scope>): <short, imperative description>
 ```
 
 ### Types
-* `feat`: New feature
-* `fix`: Bug fix
-* `docs`: Documentation updates
-* `style`: Code style/formatting changes (spaces, semicolons, etc.)
-* `refactor`: Refactoring code structure
-* `test`: Adding or correcting tests
-* `chore`: Maintenance tasks, dependencies, lockfile updates
+
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation updates
+- `style`: Code style/formatting changes (spaces, semicolons, etc.)
+- `refactor`: Refactoring code structure
+- `test`: Adding or correcting tests
+- `chore`: Maintenance tasks, dependencies, lockfile updates
 
 ### Examples
+
 - `feat(auth): integrate github oauth authentication`
 - `fix(dashboard): resolve chart container responsive scaling`
 - `docs(contributing): document environment variable configuration`
+
+### GSSoC Commit Tips
+
+- Keep each commit focused on one concern. Split unrelated UI, API, docs, and test changes into separate PRs.
+- Use `docs:`, `fix:`, `feat:`, or `test:` as the first word so maintainers can scan the history quickly.
+- Do not include generated output, local `.env` files, or unrelated formatting churn in the commit.
+- If you need multiple commits, keep them ordered logically: setup first, implementation second, tests/docs last.
 
 ---
 
@@ -174,16 +195,18 @@ We enforce **Conventional Commits** to keep our git history clean and understand
 
 For contributors joining through GirlScript Summer of Code (GSSoC), we map issues using levels to indicate complexity and points:
 
-| Label | Level / Difficulty | Points |
-| :--- | :--- | :---: |
-| `gssoc:level1` | **Beginner** — Simple styling, documentation fixes, minor bugs | **20** |
-| `gssoc:level2` | **Intermediate** — Feature additions, routing changes, basic tests | **35** |
+| Label          | Level / Difficulty                                                      | Points |
+| :------------- | :---------------------------------------------------------------------- | :----: |
+| `gssoc:level1` | **Beginner** — Simple styling, documentation fixes, minor bugs          | **20** |
+| `gssoc:level2` | **Intermediate** — Feature additions, routing changes, basic tests      | **35** |
 | `gssoc:level3` | **Advanced** — Complex logic, API integrations, deep layout refactoring | **55** |
 
 ### Guidelines:
-* **One Issue at a Time**: You can only be assigned to one issue at a time.
-* **Auto-unassignment**: If there is no progress or communication on an assigned issue within **3 days**, it will be unassigned and given to another contributor.
-* **Link Issue to PR**: Ensure your pull request description explicitly links to your assigned issue (e.g. `Closes #45`).
+
+- **One Issue at a Time**: You can only be assigned to one issue at a time.
+- **Auto-unassignment**: If there is no progress or communication on an assigned issue within **3 days**, it will be unassigned and given to another contributor.
+- **Link Issue to PR**: Ensure your pull request description explicitly links to your assigned issue (e.g. `Closes #45`).
+- **Stay in Scope**: PRs should solve the assigned issue only. Open a separate issue or discussion for unrelated ideas.
 
 ---
 
@@ -203,6 +226,9 @@ Before submitting your PR, make sure you have verified the following:
 - [ ] **No Console Errors**: Check for console warnings/errors in developer tools.
 - [ ] **Visual Validation**: If your changes involve UI edits, include mobile and desktop screenshots or a short demo GIF in the PR description.
 - [ ] **Clean History**: Ensure commits are cleanly written and follow conventional formats.
+- [ ] **Linked Issue**: Add `Closes #<issue-number>` or `Fixes #<issue-number>` in the PR body.
+- [ ] **Scope Check**: Confirm the PR does not include unrelated file changes or generated artifacts.
+- [ ] **Test Notes**: List every command you ran. If a command cannot run locally, explain why in the PR description.
 
 ---
 
