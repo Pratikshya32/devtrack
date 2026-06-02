@@ -367,3 +367,13 @@ You hit the 30 requests/minute search API limit. Wait 1 minute. In production th
 ## Questions?
 
 Open a [GitHub Discussion](https://github.com/Priyanshu-byte-coder/devtrack/discussions) — not an issue.
+
+
+## Husky Pre-commit Hooks Sandbox Troubleshooting Guide
+
+If you experience failures when running Git hooks:
+- **Permission Denied Error**: If `.husky/pre-commit` fails due to execution permissions, run the following command to make it executable:
+  `chmod +x .husky/pre-commit`
+- **Sandboxed Execution Failure**: In restricted environments or CI pipelines where local tools (like lint-staged or prettier) are not globally available, set `HUSKY=0` to temporarily bypass hooks:
+  `git commit -m "commit message" --no-verify` or `env HUSKY=0 git commit`
+- **Node Version Mismatches**: Ensure your local Node version matches the project configuration (e.g. Node 20) as older versions might lack features needed by hook dependencies.
