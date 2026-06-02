@@ -287,3 +287,12 @@ Built by the DevTrack community · [devtrack-delta.vercel.app](https://devtrack-
 Star this repo if DevTrack is useful to you.
 
 </div>
+
+
+## Local Caching and UI Rendering Performance Guidelines
+
+To optimize UI rendering and caching behavior in DevTrack:
+- **Server Rendering vs Client Rendering**: Use React Server Components (RSC) by default for pages that do not require state or interactivity to reduce the JavaScript bundle size loaded by the client.
+- **Client Cache (Zustand/Query)**: For API calls, leverage caching libraries or stores with appropriate expiration/refetch policies to minimize redundant backend database requests.
+- **Image Optimization**: Always use next/image component for images. Specify custom sizes or device breakpoints to prevent layout shifts (CLS) and ensure compressed Next-generation formats (WebP/AVIF) are served.
+- **Revalidation Policies**: When utilizing Incremental Static Regeneration (ISR), configure strict revalidation timeouts (e.g. `revalidate = 3600`) to balance content freshness with server workloads.
