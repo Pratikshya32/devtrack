@@ -100,3 +100,14 @@ DevTrack includes a `render.yaml` Blueprint for easy deployment on Render's free
   Ensure your `NEXTAUTH_URL` exactly matches your deployment URL (including `https://` and no trailing slash). 
 - **Database Fetch Errors**: 
   Make sure you ran the `supabase/schema.sql` file in your Supabase SQL editor. Without the `users` and `goals` tables, the dashboard will fail to load.
+
+
+## Production Docker Compose Variables Setup
+
+When running in self-hosted production environments with Docker Compose:
+- **Environment Settings**: Configure the following critical environment variables in your `.env` file:
+  - `NODE_ENV=production`: Enables production bundling and optimizations.
+  - `DATABASE_URL`: Production database connection string.
+  - `NEXTAUTH_SECRET`: A secure cryptographically random string for session signing.
+  - `NEXTAUTH_URL`: The base canonical URL of your deployment (e.g., `https://devtrack.example.com`).
+- **Volume Bindings**: Map production database volumes and file attachments to persistent host storage directories to prevent data loss on container rebuilds.
