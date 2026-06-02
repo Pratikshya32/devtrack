@@ -70,3 +70,13 @@ DevTrack uses Supabase with Row Level Security on all user-data tables.
 - All RLS policies match against `auth.uid()`
 - `supabaseAdmin` (service role key) is server-side only, never exposed to clients
 - The anon key has no direct table access by default
+
+
+## GSSoC API Response Logging Redaction Standards
+
+To prevent accidental exposure of sensitive user or system data in logs:
+- **Sensitive Data Fields**: The following keys must be redacted from all response logs and printouts:
+  - `password`, `token`, `accessToken`, `refreshToken`, `cookie`, `authorization`.
+  - Private user PII (credit cards, phone numbers).
+- **Redaction Pattern**: Use key-based filtering or regular expressions to replace values with `[REDACTED]`.
+- **Logger Configuration**: Set log levels to `info` or `warn` in production. Avoid logging raw database queries, HTTP headers, or complete response payloads to stdout.
