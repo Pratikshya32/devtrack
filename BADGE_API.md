@@ -172,3 +172,16 @@ For issues or feature requests related to badges:
   ![DevTrack Streak](https://devtrack.app/api/badge/streak?user=octocat)
 ](https://devtrack.app/u/octocat)
 ```
+
+
+## Badge API Rate Limiting Specifications
+
+To prevent abuse and maintain API responsiveness:
+- **Standard Limits**: All badge-fetching endpoints are limited to:
+  - **100 requests per 15-minute window** per IP address or user ID.
+- **Rate Limit Headers**: All responses return the following rate-limiting headers:
+  - `X-RateLimit-Limit`: Maximum requests allowed in the window.
+  - `X-RateLimit-Remaining`: Number of requests remaining in the current window.
+  - `X-RateLimit-Reset`: UTC epoch timestamp indicating when the window resets.
+- **Exceeded Limit Response**: When limits are exceeded, the API returns a `429 Too Many Requests` status code with a JSON payload:
+  `{ "error": "Too many requests. Please try again later." }`
