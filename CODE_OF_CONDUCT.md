@@ -29,3 +29,14 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be repor
 ## Attribution
 
 This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 2.1.
+
+
+## CoC Incident Reporting Procedures and Contacts
+
+If you experience or witness harassment or any violation of our Code of Conduct:
+- **Reporting Contact**: Send an email detailing the incident to **gssoc-coc@example.com**.
+- **Information Required**:
+  - Date, time, and location/issue/PR where the incident occurred.
+  - Names or usernames of parties involved.
+  - A description of the behavior and any supporting screenshots or links.
+- **Response Protocol**: The maintainers will review the report within 24-48 hours and determine appropriate disciplinary action. All reports will be handled with strict confidentiality.
