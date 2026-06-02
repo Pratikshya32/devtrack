@@ -111,3 +111,11 @@ Can provide coding activity metrics.
 2. API fetches GitHub activity
 3. Metrics are processed and stored in Supabase
 4. Dashboard components fetch and render analytics
+
+
+## Database Connection Pooling Guidelines
+
+To ensure efficient database resource usage and avoid connection depletion:
+- **Connection Pooling**: Use Prisma's built-in connection pool or a database proxy (e.g., PgBouncer) to manage connections.
+- **Serverless Environments**: When deploying in Serverless environments (like Vercel, AWS Lambda), limit connection sizes (e.g., `connection_limit=1`) to prevent serverless scale-ups from exhausting database connection limits.
+- **Idle Timeout**: Configure connection idle timeouts to recycle inactive database connections after 10-15 seconds.
