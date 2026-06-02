@@ -52,3 +52,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ---
 
 [0.1.0]: https://github.com/Priyanshu-byte-coder/devtrack/releases/tag/v0.1.0
+
+
+## GSSoC Semantic Versioning Rules
+
+We strictly follow Semantic Versioning (SemVer) guidelines for versioning development updates:
+- **Major Bumps (`X.0.0`)**: For incompatible API or configuration changes that break backwards compatibility.
+- **Minor Bumps (`0.X.0`)**: For adding backwards-compatible functionality or features.
+- **Patch Bumps (`0.0.X`)**: For backwards-compatible bug fixes, security updates, and documentation modifications.
+Contributors should not manually update version fields in `package.json` unless requested by a repository maintainer.
