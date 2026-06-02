@@ -213,3 +213,17 @@ For guides on self-hosting DevTrack or deploying it manually, please check the [
 ---
 
 Thank you for helping make DevTrack better! Happy coding! 🚀
+
+
+## GSSoC Git Branching and Commit Conventions
+
+To maintain a clean and trackable commit history, all GSSoC 2026 contributors must adhere to the following rules:
+- **Branch Naming**: Use descriptive branch prefixes for new branches:
+  - `feat/feature-name` for new features.
+  - `fix/bug-name` for bug fixes.
+  - `docs/doc-name` for documentation updates.
+  - `chore/chore-name` for configuration changes or maintenance.
+- **Commit Messages**: Follow conventional commits standards:
+  - Format: `<type>(<scope>): <short description>` (e.g., `feat(auth): add OAuth registration support`).
+  - Keep commits atomic and self-contained.
+  - Reference issues in your final commits/pull requests using `Fixes #<issue_number>` or `Closes #<issue_number>`.
