@@ -143,6 +143,31 @@ Always create a new branch for your task. Never push directly to `main`. Use the
 * `test/` — Adding or updating tests (e.g., `test/visual-regression-setup`)
 * `refactor/` — Code refactoring with no behavior changes (e.g., `refactor/api-routes`)
 
+### GSSoC Branching Workflow
+
+For GSSoC issues, keep each branch tied to one assigned issue so maintainers can review, label, and merge it without sorting unrelated changes.
+
+1. Sync your local `main` before starting:
+   ```bash
+   git checkout main
+   git pull upstream main
+   git push origin main
+   ```
+2. Create a branch that names the work and, when useful, the issue number:
+   ```bash
+   git checkout -b docs/gssoc-git-conventions-2
+   git checkout -b fix/dashboard-empty-state-124
+   git checkout -b test/github-sync-service-208
+   ```
+3. Keep commits focused on the assigned issue. If you notice an unrelated bug, open a separate issue or PR instead of mixing it into the current branch.
+4. Re-sync long-running branches before requesting review:
+   ```bash
+   git fetch upstream
+   git rebase upstream/main
+   ```
+
+Use `git status` before every commit and before every push. It is the quickest way to avoid committing generated files, secrets, local `.env` files, or unrelated edits.
+
 ---
 
 ## 6. Commit Guidelines
@@ -167,6 +192,38 @@ We enforce **Conventional Commits** to keep our git history clean and understand
 - `feat(auth): integrate github oauth authentication`
 - `fix(dashboard): resolve chart container responsive scaling`
 - `docs(contributing): document environment variable configuration`
+
+### GSSoC Commit Examples
+
+Prefer short, imperative commit messages that explain the user-facing or maintainer-facing value:
+
+| Change Type | Good Commit Message |
+| :--- | :--- |
+| Documentation | `docs(contributing): add gssoc branch workflow` |
+| Bug fix | `fix(auth): reject expired github oauth tokens` |
+| Tests | `test(metrics): cover empty contribution graph state` |
+| Refactor | `refactor(api): extract repository stats mapper` |
+| Performance | `perf(dashboard): cache repository summary queries` |
+
+Avoid vague commits such as:
+- `update files`
+- `final changes`
+- `bug fixed`
+- `gssoc contribution`
+
+If a branch needs multiple commits, each commit should still build on its own idea. For example, a feature PR might have one implementation commit and one test commit, but it should not include unrelated formatting or dependency churn.
+
+### Linking Commits And PRs To Issues
+
+Your pull request description must link the assigned issue using one of GitHub's closing keywords:
+
+```text
+Closes #123
+Fixes #123
+Resolves #123
+```
+
+For GSSoC scoring, also mention the issue number in the PR summary and confirm the validation commands you ran. This helps maintainers verify assignment, labels, and review readiness quickly.
 
 ---
 
