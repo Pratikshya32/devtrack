@@ -168,6 +168,23 @@ We enforce **Conventional Commits** to keep our git history clean and understand
 - `fix(dashboard): resolve chart container responsive scaling`
 - `docs(contributing): document environment variable configuration`
 
+### GSSoC Workflow Example
+
+For assigned issues, keep the change set small and the PR description direct:
+
+```bash
+git checkout -b docs/gssoc-git-conventions
+git add CONTRIBUTING.md
+git commit -m "docs(contributing): document git conventions"
+git push origin docs/gssoc-git-conventions
+```
+
+In the PR description, include:
+
+- `Closes #2`
+- a one-paragraph summary of what changed
+- any validation notes if you ran checks locally
+
 ---
 
 ## 7. Issue Labels & GSSoC Levels
