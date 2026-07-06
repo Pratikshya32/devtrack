@@ -188,3 +188,4 @@ See **[CONTRIBUTING.md](./CONTRIBUTING.md)** for full guidelines, commit style, 
 ## License
 
 MIT — see [LICENSE](./LICENSE).
+# TODO: docs: add gssoc api response logging redaction standards (#4)
