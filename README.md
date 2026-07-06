@@ -188,3 +188,4 @@ See **[CONTRIBUTING.md](./CONTRIBUTING.md)** for full guidelines, commit style, 
 ## License
 
 MIT — see [LICENSE](./LICENSE).
+# TODO: docs: document production docker compose variables setup (#9)
